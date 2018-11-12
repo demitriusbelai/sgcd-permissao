@@ -1,0 +1,45 @@
+<?php
+include "../../config.php";
+header('Content-Type: application/x-java-jnlp-file');
+$site =  str_replace('https://', '', SGCD_URL);
+?><?xml version="1.0" encoding="utf-8"?>
+<jnlp
+    spec="1.0+"
+    codebase="<?= SGCD_URL ?>/permissao/jnlp/"
+    href="launch.jnlp">
+
+<information>
+    <title>SGCD Permissao - <?= $site ?></title>
+    <vendor>UNESP</vendor>
+    <homepage href="<?= SGCD_URL ?>/permisao/"/>
+
+	<shortcut online="true">
+    	<desktop/>
+    	<menu submenu="SGCD Permissao - <?= $site ?>"/>
+  	</shortcut>
+  	<!--
+	<icon href="icon.png" kind="default" />
+	<icon href="splash.png" kind="splash" />
+	-->
+
+</information>
+
+<security>
+     <all-permissions/>
+     <j2ee-application-client-permissions/>
+</security>
+
+<resources>
+    <j2se version="1.8+" href="http://java.sun.com/products/autodl/j2se" />
+        
+    <jar href="sgcd-permissao-1.0-SNAPSHOT.jar" main="true"/>
+    <jar href="gson-2.3.1.jar"/>
+    <jar href="commons-logging-1.2.jar"/>
+    <jar href="beansbinding-1.2.1.jar"/>
+    <jar href="httpcore-4.4.5.jar"/>
+    <jar href="commons-codec-1.9.jar"/>
+    <jar href="httpclient-4.5.2.jar"/>
+
+</resources>
+<application-desc main-class="br.unesp.sgcd.SgcdPermissao"/>
+</jnlp>

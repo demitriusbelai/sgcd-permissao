@@ -1,0 +1,3 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteRule ^(.*)$ /sgcd-permissao/api/controlador.php?q=$1 [L,QSA,END]
